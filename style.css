@@ -8,8 +8,8 @@
 body{
     width: 100%;
     height:100vh;
-    background: linear-gradient(to right bottom,#08203e,#557c93);
-    color: white;
+    background: linear-gradient(to right bottom,#dbe1dfef,#557c93);
+    color: black;
     display: grid;
     place-items:center;
 }
@@ -19,6 +19,7 @@ body{
     max-width: 850px;
     padding :30px;
     text-align: center;
+    display:none;
 }
 
 .container h1{
@@ -38,10 +39,128 @@ margin-top: 20px;
 }
 .choice{
     font-size: 20px;
-    background-color: #eee;
-    color: black;
+    background-color: #e31e1e;
+    color: black(209, 13, 105, 0.616);
     margin: 10px auto;
-    border-radius: 5px;
+    border-radius: 4px;
     text-align: left;
     width: 60%;
+    cursor: pointer;
+    box-shadow: #2c0505 ;
+    opacity: 0;
+    transform: translateY(50%);
+    animation: fade-in 0.5s ease-in forwards;
+}
+
+.choice:hover{
+    background-color: #3c8fc0;
+}
+
+.btn{
+    width: 60%;
+    font-size: 20px;
+    padding: 12px 20px;
+    font-weight: 600;
+    margin: 20px auto 0 auto;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: rgb(32, 85, 32);
+
+}
+
+.choice.selected{
+    background-color: #007bff;
+    color: white;
+}
+.scoreCard{
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.alert{
+    background-color: rgb(54, 170, 54);
+    border-radius: 5px;
+    width:100%;
+    padding :12px;
+    position: absolute;
+    top:0;
+    display: none;
+    text-align: center;
+}
+
+
+.startBtn{
+    width:15%;
+    padding-block: 20px;
+    text-align: center;
+}
+
+.timer{
+    position: absolute;
+    top:20px;
+    right:20px;
+    width:72px;
+    height: 72px;
+    background-color: #08203e;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight:600;
+    border:2px solid red;
+    padding:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Adding Animation to Timer */
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* Adding Animation to choices */
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width:900px){
+    .container{
+        width:100%;
+        margin-top: 50;
+    }
+    .container h1{
+        font-size: 24px;
+    }
+    .container .question{
+        font-size: 22;
+    }
+    .timer{
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .startBtn{
+        width: 50%;
+    }
 }
